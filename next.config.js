@@ -7,11 +7,7 @@ const nextConfig = {
   swcMinify: true,
   output: "export",
   distDir: "build",
-  basePath: "/saifmohamedsv.github.io",
-  
-  // eslint: {
-  //   ignoreDuringBuilds: true,
-  // },
+  // basePath: "/saifmohamedsv.github.io",
   images: {
     unoptimized: true,
     domains: [
