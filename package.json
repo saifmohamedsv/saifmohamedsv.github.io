@@ -1,7 +1,6 @@
 {
   "name": "saif-mohamed",
   "version": "0.1.0",
-  "homepage": "https://saifmohamedsv.github.io/",
   "private": true,
   "scripts": {
     "predeploy": "next build",
