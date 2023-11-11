@@ -2,7 +2,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import Link from "@/components/ui/Link";
-import { formatDate } from "lib/formatdate";
 import { client } from "@/sanity/client";
 import { Project } from "@/types/project";
 import { urlFor } from "@/sanity/image-builder";
@@ -105,11 +104,3 @@ async function getData(postId: string) {
   );
   return response[0];
 }
-
-// export async function generateStaticParams() {
-//   const posts = await client.fetch<Project[]>(`*[_type == "works"]`);
-
-//   return posts.map((post) => ({
-//     _id: post._id,
-//   }));
-// }
