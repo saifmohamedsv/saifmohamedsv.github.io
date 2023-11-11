@@ -19,6 +19,21 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
+export async function generateStaticParams() {
+  const response = await fetch(`https://dev.to/api/articles/me/published`, {
+    headers: {
+      "api-key": process.env.NEXT_PUBLIC_DEVTO_API_KEY as string,
+      accept: "application/vnd.forem.api-v1+json",
+    },
+  });
+
+  const posts = await response.json();
+
+  return posts.map((post: any) => ({
+    id: post.id.toString(),
+  }));
+}
+
 export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata,
@@ -29,15 +44,7 @@ export async function generateMetadata(
     throw new Error("Post not found");
   }
 
-  const {
-    title,
-    published_at: publishedTime,
-    description,
-    cover_image,
-    slug,
-  } = post;
-
-  const ogImage = `https://b-r.io/${cover_image}`;
+  const { title, published_at: publishedTime, description } = post;
 
   const metadata: Metadata = {
     title: `${title} | Saif Mohamed`,
@@ -47,21 +54,22 @@ export async function generateMetadata(
       description,
       type: "article",
       publishedTime,
-      url: `https://saifmohamedsv.web.app/blog/${title}`,
-      images: [
-        {
-          url: `https://saifmohamedsv.web.app/api/og?title=${title}`,
-          alt: title,
-        },
-      ],
+      // url: `https://saifmohamedsv.web.app/blog/${title}`,
+      // images: [
+      //   {
+      //     url: `https://saifmohamedsv.web.app/api/og?title=${title}`,
+      //     alt: title,
+      //   },
+      // ],
     },
   };
 
   return metadata;
 }
 
-export default async function Post({ params }: { params: any }) {
+export default async function Post({ params }: { params: { id: string } }) {
   const { id } = params;
+
   const post: PostType = await getData(id);
 
   if (!post) {
@@ -95,10 +103,9 @@ export default async function Post({ params }: { params: any }) {
             <div className="leading-tight">
               <p className="font-medium text-primary">{post.user.name}</p>
               <p className="text-secondary">
-                {/* <time dateTime={post.published_at}>
+                <time dateTime={post.published_at}>
                   {formatDate(post.published_at)}
-                </time> */}
-                {/* {new Date(post.published_at).getFullYear()} */}
+                </time>
                 {" · "}
                 <ViewCounter comments_count={post.page_views_count} />
               </p>
@@ -149,17 +156,3 @@ async function getData(postId: string) {
 
   return await response.json();
 }
-
-// export async function generateStaticParams() {
-//   const response = await fetch(`https://dev.to/api/articles/`, {
-//     headers: {
-//       "api-key": process.env.NEXT_PUBLIC_DEVTO_API_KEY as string,
-//       accept: "application/vnd.forem.api-v1+json",
-//     },
-//   });
-//   const posts = await response.json();
-
-//   return posts.map((post: any) => ({
-//     id: post.id,
-//   }));
-// }

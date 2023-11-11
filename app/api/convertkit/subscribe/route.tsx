@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 
-const API_KEY = process.env.CONVERTKIT_API_KEY;
-const FORM_ID = process.env.CONVERTKIT_FORM_ID;
+const API_KEY = process.env.NEXT_PUBLIC_CONVERTKIT_API_KEY;
+const FORM_ID = process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID;
 
 export async function POST(req: NextRequest) {
   // Endpoint

@@ -2,23 +2,21 @@ import { MDX as string } from "contentlayer/core";
 
 export type Post = {
   id: string;
-
   type_of: string;
   title: string;
   description: string;
   published_at: string;
-  updatedAt?: string | undefined;
+  published_timestamp: string;
+  updatedAt: string;
   tags: string[];
-  page_views_count: number;
-  featured?: boolean | undefined;
-  shortTitle?: string;
-
+  page_views_count: number | 0;
+  featured: boolean;
   slug: string;
   cover_image: string;
-  og: string;
+  og?: string;
   comments_count: number;
   body_html: string;
-
+  readable_publish_date?: string;
   user: User;
 };
 

@@ -1,22 +1,21 @@
-import { allProjects, Post as PostType } from ".contentlayer/generated";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-import Mdx from "@/app/blog/components/ui/MdxWrapper";
-import PostList from "@/app/blog/components/ui/PostList";
-import Tags from "@/components/Tags";
 import Link from "@/components/ui/Link";
 import { formatDate } from "lib/formatdate";
 import { client } from "@/sanity/client";
 import { Project } from "@/types/project";
 import { urlFor } from "@/sanity/image-builder";
 
-type PostProps = {
-  post: PostType;
-  related: PostType[];
-};
+export async function generateStaticParams() {
+  const projects = await client.fetch<Project[]>(`*[_type == "works"]`);
 
-export default async function Project({ params }: { params: any }) {
+  return projects.map((project: Project) => ({
+    _id: project._id.toString(),
+  }));
+}
+
+export default async function Project({ params }: { params: { _id: string } }) {
   const { _id } = params;
   const project = await getData(_id);
 

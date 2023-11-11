@@ -16,6 +16,8 @@ type PostProps = {
 
 export default function Post({ post, mousePosition }: PostProps) {
   const { published_at, title, cover_image, id } = post;
+  console.log(post, "pooooost");
+
   // const publishDate = new Date(published_at);
   // const showNewBadge =
   //   Math.abs(new Date(publishDate).getTime() - new Date().getTime()) /

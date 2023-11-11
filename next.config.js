@@ -5,9 +5,14 @@ const { withContentlayer } = require("next-contentlayer");
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  output: "export",
   distDir: "build",
-  // output: "export",
+
+  // eslint: {
+  //   ignoreDuringBuilds: true,
+  // },
   images: {
+    unoptimized: true,
     domains: [
       "tailwindui.com",
       "images.unsplash.com",
@@ -24,4 +29,5 @@ const nextConfig = {
   },
 };
 
-module.exports = withContentlayer(nextConfig);
+// module.exports = withContentlayer(nextConfig);
+module.exports = nextConfig;

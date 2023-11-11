@@ -1,7 +1,7 @@
 {
-  "name": "website",
+  "name": "saif-mohamed",
   "version": "0.1.0",
-  "homepage": "https://saifmohamedsv.github.io/blog",
+  "homepage": "https://saifmohamedsv.github.io/",
   "private": true,
   "scripts": {
     "predeploy": "next build",
@@ -31,7 +31,7 @@
     "framer-motion": "^10.16.4",
     "gh-pages": "^6.0.0",
     "lucide-react": "^0.285.0",
-    "next": "^13.5.6",
+    "next": "^14.0.2",
     "next-contentlayer": "^0.3.4",
     "next-sanity": "^6.0.1",
     "next-themes": "^0.2.1",
@@ -54,7 +54,7 @@
     "@types/react-dom": "^18",
     "autoprefixer": "^10",
     "eslint": "^8",
-    "eslint-config-next": "^14.0.0",
+    "eslint-config-next": "^14.0.2",
     "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.6",

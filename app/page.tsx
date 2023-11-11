@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "@/components/ui/Link";
-import { allPosts } from ".contentlayer/generated";
 
 import PostList from "./blog/components/ui/PostList";
 import Stats from "@/components/Stats";
@@ -8,13 +7,7 @@ import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
 import Avatar from "@/public/avatar.png";
 
 export default async function Home() {
-  const data = await getData();
-  const posts = data
-    .sort(
-      (a: any, b: any) =>
-        new Date(b.published_at).getTime() - new Date(a.published_at).getTime(),
-    )
-    .filter((_: any, i: any) => i < 3);
+  const posts = await getData();
 
   return (
     <div className="flex flex-col gap-16 md:gap-24">
@@ -42,7 +35,7 @@ export default async function Home() {
             alt="avatar"
             className="rounded-full bg-contain"
           />
-          <Stats />
+          {/* <Stats /> */}
         </div>
 
         <p
@@ -100,10 +93,9 @@ async function getData() {
   const response = await fetch("https://dev.to/api/articles/me/published", {
     headers: {
       "api-key": process.env.NEXT_PUBLIC_DEVTO_API_KEY as string,
-      accept: "application/vnd.forem.api-v1+json",
+      accept: "application/json",
     },
-    method: "GET",
   });
 
-  return await response.json();
+  return response.json();
 }

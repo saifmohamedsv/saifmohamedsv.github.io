@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { allPosts } from ".contentlayer/generated";
 import PostList from "./components/ui/PostList";
 import NewsletterSignupForm from "./components/ui/NewsletterSignupForm";
 
