@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/saifmohamedsv/Work/Personal Portfolios/b-r.io/app/layout\":[\"static/media/c9a5bc6a7c948fb0-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/Users/saifmohamedsv/Work/Personal Portfolios/b-r.io/app/layout":["static/media/c9a5bc6a7c948fb0-s.p.woff2"],"/Users/saifmohamedsv/Work/Personal Portfolios/b-r.io/app/about/page":["static/media/3676789fa9c44f0a-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
