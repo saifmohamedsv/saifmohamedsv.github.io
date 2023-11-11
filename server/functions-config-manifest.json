@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/_not-found":{},"/blog/[id]":{},"/blog":{},"/gear":{},"/mediakit":{},"/projects/[_id]":{},"/projects":{},"/about":{}}}
+{"version":1,"functions":{"/_not-found":{},"/blog/[id]":{},"/about":{},"/mediakit":{},"/blog":{},"/gear":{},"/projects":{},"/projects/[_id]":{}}}
