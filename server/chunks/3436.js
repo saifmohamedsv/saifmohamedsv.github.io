@@ -1,0 +1,1 @@
+"use strict";exports.id=3436,exports.ids=[3436],exports.modules={16132:(e,P)=>{var t;Object.defineProperty(P,"x",{enumerable:!0,get:function(){return t}}),function(e){e.PAGES="PAGES",e.PAGES_API="PAGES_API",e.APP_PAGE="APP_PAGE",e.APP_ROUTE="APP_ROUTE"}(t||(t={}))},67096:(e,P,t)=>{e.exports=t(20399)},4656:(e,P,t)=>{e.exports=t(67096).vendored["react-rsc"].ReactJsxRuntime}};
