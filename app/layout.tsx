@@ -28,7 +28,7 @@ export default function RootLayout({
           "width-full bg-primary text-primary antialiased",
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Navigation />
           <div
             className={
