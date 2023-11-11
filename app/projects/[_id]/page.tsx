@@ -17,7 +17,8 @@ type PostProps = {
 };
 
 export default async function Project({ params }: { params: any }) {
-  const project = await getData(params._id);
+  const { _id } = params;
+  const project = await getData(_id);
 
   if (!project) {
     notFound();
@@ -77,9 +78,12 @@ export default async function Project({ params }: { params: any }) {
         <div className="flex flex-col gap-6">
           <h2>Contact</h2>
           <p className="max-w-lg text-secondary">
-            Need more project details, or interested in working together? Reach out to me directly
-            at{" "}
-            <a href="mailto:saifmohamed.dev@gmail.com" className="text-primary underline">
+            Need more project details, or interested in working together? Reach
+            out to me directly at{" "}
+            <a
+              href="mailto:saifmohamed.dev@gmail.com"
+              className="text-primary underline"
+            >
               saifmohamed.dev@gmail.com
             </a>
             . I&apos;d be happy to connect!{" "}
@@ -96,8 +100,17 @@ export default async function Project({ params }: { params: any }) {
   );
 }
 
-export async function getData(postId: string) {
-  const response = await client.fetch<Project[]>(`*[_type == "works" && _id == "${postId}"]`);
-  console.log(response);
+async function getData(postId: string) {
+  const response = await client.fetch<Project[]>(
+    `*[_type == "works" && _id == "${postId}"]`,
+  );
   return response[0];
 }
+
+// export async function generateStaticParams() {
+//   const posts = await client.fetch<Project[]>(`*[_type == "works"]`);
+
+//   return posts.map((post) => ({
+//     _id: post._id,
+//   }));
+// }

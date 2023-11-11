@@ -29,7 +29,13 @@ export async function generateMetadata(
     throw new Error("Post not found");
   }
 
-  const { title, published_at: publishedTime, description, cover_image, slug } = post;
+  const {
+    title,
+    published_at: publishedTime,
+    description,
+    cover_image,
+    slug,
+  } = post;
 
   const ogImage = `https://b-r.io/${cover_image}`;
 
@@ -55,8 +61,8 @@ export async function generateMetadata(
 }
 
 export default async function Post({ params }: { params: any }) {
-  const post: PostType = await getData(params.id);
-  console.log(post, "post from page");
+  const { id } = params;
+  const post: PostType = await getData(id);
 
   if (!post) {
     notFound();
@@ -73,7 +79,9 @@ export default async function Post({ params }: { params: any }) {
             <h1 className="text-3xl font-bold leading-tight tracking-tight text-primary">
               {post.title}
             </h1>
-            <p className="text-lg leading-tight text-secondary md:text-xl">{post.description}</p>
+            <p className="text-lg leading-tight text-secondary md:text-xl">
+              {post.description}
+            </p>
           </div>
 
           <div className="flex max-w-none items-center gap-4">
@@ -87,9 +95,12 @@ export default async function Post({ params }: { params: any }) {
             <div className="leading-tight">
               <p className="font-medium text-primary">{post.user.name}</p>
               <p className="text-secondary">
-                <time dateTime={post.published_at}>{formatDate(post.published_at)}</time>
+                {/* <time dateTime={post.published_at}>
+                  {formatDate(post.published_at)}
+                </time> */}
+                {/* {new Date(post.published_at).getFullYear()} */}
                 {" · "}
-                <ViewCounter comments_count={post.comments_count} />
+                <ViewCounter comments_count={post.page_views_count} />
               </p>
             </div>
           </div>
@@ -128,7 +139,7 @@ export default async function Post({ params }: { params: any }) {
   );
 }
 
-export async function getData(postId: string) {
+async function getData(postId: string) {
   const response = await fetch(`https://dev.to/api/articles/${postId}`, {
     headers: {
       "api-key": process.env.NEXT_PUBLIC_DEVTO_API_KEY as string,
@@ -138,3 +149,17 @@ export async function getData(postId: string) {
 
   return await response.json();
 }
+
+// export async function generateStaticParams() {
+//   const response = await fetch(`https://dev.to/api/articles/`, {
+//     headers: {
+//       "api-key": process.env.NEXT_PUBLIC_DEVTO_API_KEY as string,
+//       accept: "application/vnd.forem.api-v1+json",
+//     },
+//   });
+//   const posts = await response.json();
+
+//   return posts.map((post: any) => ({
+//     id: post.id,
+//   }));
+// }

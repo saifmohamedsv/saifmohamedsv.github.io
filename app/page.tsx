@@ -11,10 +11,10 @@ export default async function Home() {
   const data = await getData();
   const posts = data
     .sort(
-      (a: any, b: any) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime(),
+      (a: any, b: any) =>
+        new Date(b.published_at).getTime() - new Date(a.published_at).getTime(),
     )
     .filter((_: any, i: any) => i < 3);
-  console.log(data);
 
   return (
     <div className="flex flex-col gap-16 md:gap-24">
@@ -23,7 +23,10 @@ export default async function Home() {
           <h1 className="animate-in text-3xl font-bold tracking-tight text-primary">
             Saif Mohamed
           </h1>
-          <p className="animate-in text-secondary" style={{ "--index": 1 } as React.CSSProperties}>
+          <p
+            className="animate-in text-secondary"
+            style={{ "--index": 1 } as React.CSSProperties}
+          >
             I write code and do martial arts.
           </p>
         </div>
@@ -46,8 +49,9 @@ export default async function Home() {
           className="max-w-lg animate-in text-primary"
           style={{ "--index": 2 } as React.CSSProperties}
         >
-          Hi, I&apos;m Saif Mohamed, a software engineer who loves building cool things with code.
-          In addition to coding, I also mentor junior developers to be better and be job-ready.
+          Hi, I&apos;m Saif Mohamed, a software engineer who loves building cool
+          things with code. In addition to coding, I also mentor junior
+          developers to be better and be job-ready.
         </p>
 
         <ul
@@ -64,7 +68,10 @@ export default async function Home() {
             </Link>
           </li>
           <li className="transition-opacity">
-            <Link href="/links" className="flex items-center gap-2 no-underline">
+            <Link
+              href="/links"
+              className="flex items-center gap-2 no-underline"
+            >
               <ArrowUpRightIcon className="h-5 w-5" />
               <span>More ways to connect</span>
             </Link>
@@ -89,7 +96,7 @@ export default async function Home() {
   );
 }
 
-export async function getData() {
+async function getData() {
   const response = await fetch("https://dev.to/api/articles/me/published", {
     headers: {
       "api-key": process.env.NEXT_PUBLIC_DEVTO_API_KEY as string,

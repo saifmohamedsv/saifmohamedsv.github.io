@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
-import { allProjects, Project } from ".contentlayer/generated";
 import Halo from "@/components/ui/Halo";
 import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/image-builder";
@@ -18,7 +17,8 @@ export default async function Blog(props: any) {
 
   // Sorting by created data
   const projects = data.sort(
-    (a, b) => new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime(),
+    (a, b) =>
+      new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime(),
   );
 
   return (
@@ -26,7 +26,9 @@ export default async function Blog(props: any) {
       <div className="flex flex-col gap-16 md:gap-24 ">
         <div className="flex flex-col gap-8">
           <div>
-            <h1 className="animate-in text-3xl font-bold tracking-tight">Projects</h1>
+            <h1 className="animate-in text-3xl font-bold tracking-tight">
+              Projects
+            </h1>
             <p
               className="animate-in text-secondary"
               style={{ "--index": 1 } as React.CSSProperties}
@@ -40,7 +42,11 @@ export default async function Blog(props: any) {
           style={{ "--index": 3 } as React.CSSProperties}
         >
           {projects
-            .sort((a, b) => new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime())
+            .sort(
+              (a, b) =>
+                new Date(b._createdAt).getTime() -
+                new Date(a._createdAt).getTime(),
+            )
             .map((project, i) => (
               <li
                 key={project.title}
@@ -70,10 +76,15 @@ export default async function Blog(props: any) {
                     >
                       {project.title}
                     </Link>
-                    <time className="text-secondary"> · {project.yearCreated}</time>
+                    <time className="text-secondary">
+                      {" "}
+                      · {project.yearCreated}
+                    </time>
                   </div>
 
-                  <p className="line-clamp-3 text-tertiary">{project.description}</p>
+                  <p className="line-clamp-3 text-tertiary">
+                    {project.description}
+                  </p>
                 </div>
               </li>
             ))}
@@ -83,6 +94,6 @@ export default async function Blog(props: any) {
   );
 }
 
-export async function getData() {
+async function getData() {
   return await client.fetch<Project[]>(`*[_type == "works"]`);
 }

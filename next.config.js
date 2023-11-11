@@ -5,6 +5,8 @@ const { withContentlayer } = require("next-contentlayer");
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  distDir: "build",
+  // output: "export",
   images: {
     domains: [
       "tailwindui.com",
