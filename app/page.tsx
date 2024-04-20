@@ -1,10 +1,9 @@
-import Image from "next/image";
 import Link from "@/components/ui/Link";
+import Image from "next/image";
 
-import PostList from "./blog/components/ui/PostList";
-import Stats from "@/components/Stats";
-import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
 import Avatar from "@/public/avatar.png";
+import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
+import PostList from "./blog/components/ui/PostList";
 
 export default async function Home() {
   const posts = await getData();

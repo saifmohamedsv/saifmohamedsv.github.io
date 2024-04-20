@@ -1,18 +1,19 @@
-import { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import clsx from "clsx";
 import Halo from "@/components/ui/Halo";
 import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/image-builder";
 import { Project } from "@/types/project";
+import clsx from "clsx";
+import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Projects | Saif Mohamed",
-  description: "Here are some of the projects I've worked on.",
+  description:
+    "Results-Driven Full-Stack Frontend Developer | Specialized in React.js | AIESEC Global Volunteer | Expert in JavaScript | Dedicated to Seamless Fullstack Solutions",
 };
 
-export default async function Blog(props: any) {
+export default async function Blog() {
   const data = await getData();
 
   // Sorting by created data

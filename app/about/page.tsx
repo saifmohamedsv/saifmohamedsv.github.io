@@ -1,16 +1,16 @@
-import Image from "next/image";
 import { Metadata } from "next";
+import Image from "next/image";
 
-import Link from "@/components/ui/Link";
 import Section from "@/components/Section";
+import Link from "@/components/ui/Link";
 import ConnectLinks from "../../components/ConnectLinks";
-import Workplaces from "./components/Workplaces";
 import Gallery from "./components/Gallery";
+import Workplaces from "./components/Workplaces";
 
+import advertLeapLogo from "public/work/advertleap-logo.jpeg";
 import lnkrLogo from "public/work/lnkr.jpeg";
 import springyUniverseLogo from "public/work/springyuniverse-logo.jpeg";
 import taqneenLogo from "public/work/taqneen-logo.jpeg";
-import advertLeapLogo from "public/work/advertleap-logo.jpeg";
 import xponLogo from "public/work/xpon-logo.jpeg";
 
 import hawamahal from "public/gallery/hawa-mahal.jpeg";
@@ -19,7 +19,7 @@ import indiatrip from "public/gallery/india-trip.jpeg";
 export const metadata: Metadata = {
   title: "About | Saif Mohamed",
   description:
-    "I am a full-stack software engineer who basically just enjoys creating things.",
+    "Results-Driven Full-Stack Frontend Developer | Specialized in React.js | AIESEC Global Volunteer | Expert in JavaScript | Dedicated to Seamless Fullstack Solutions",
 };
 
 export default function About() {

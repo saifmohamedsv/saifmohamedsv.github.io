@@ -1,18 +1,18 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import clsx from "clsx";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-import { ThemeProvider } from "@/components/ThemeProvider";
 import Navigation from "@/components/Navigation";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Home | Saif Mohamed",
   description:
-    "I am a full-stack software engineer who basically just enjoys creating things.",
+    "Results-Driven Full-Stack Frontend Developer | Specialized in React.js | AIESEC Global Volunteer | Expert in JavaScript | Dedicated to Seamless Fullstack Solutions",
 };
 
 export default function RootLayout({

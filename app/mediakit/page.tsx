@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import avatar from "public/avatar.png";
 import map from "public/map.png";
@@ -11,7 +11,7 @@ import Link from "@/components/ui/Link";
 export const metadata: Metadata = {
   title: "Mediakit | Saif Mohamed",
   description:
-    "Creator based in Houston. Focuses on topics including consumer technology, software engineering, design, and lifestyle.",
+    "Results-Driven Full-Stack Frontend Developer | Specialized in React.js | AIESEC Global Volunteer | Expert in JavaScript | Dedicated to Seamless Fullstack Solutions",
 };
 
 export default function Mediakit() {

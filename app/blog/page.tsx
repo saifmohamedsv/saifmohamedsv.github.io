@@ -3,9 +3,9 @@ import PostList from "./components/ui/PostList";
 import NewsletterSignupForm from "./components/ui/NewsletterSignupForm";
 
 export const metadata: Metadata = {
-  title: "Blog | Brian Ruiz",
+  title: "Blog | Saif Mohamed",
   description:
-    "I write about programming, design, and occasionally life updates!",
+    "Results-Driven Full-Stack Frontend Developer | Specialized in React.js | AIESEC Global Volunteer | Expert in JavaScript | Dedicated to Seamless Fullstack Solutions",
 };
 
 export default async function Blog() {
