@@ -22,6 +22,8 @@ export default async function Blog() {
       new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime(),
   );
 
+  console.log(projects);
+  
   return (
     <div className="mx-auto max-w-[700px]">
       <div className="flex flex-col gap-16 md:gap-24 ">
