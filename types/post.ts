@@ -16,6 +16,7 @@ export type Post = {
   og?: string;
   comments_count: number;
   body_html: string;
+  body_markdown: string;
   readable_publish_date?: string;
   user: User;
 };

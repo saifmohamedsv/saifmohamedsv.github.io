@@ -3,10 +3,10 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import CustomImage from "@/app/blog/components/ui/Image";
 import Link from "@/components/ui/Link";
 import Alert from "../mdx/Alert";
-import Parallax from "../mdx/parallax";
+import LinkPreview from "../mdx/LinkPreview";
 import Weather from "../mdx/Weather";
 import WeatherList from "../mdx/WeatherList";
-import LinkPreview from "../mdx/LinkPreview";
+import Parallax from "../mdx/parallax";
 
 interface CustomLinkProps
   extends React.DetailedHTMLProps<

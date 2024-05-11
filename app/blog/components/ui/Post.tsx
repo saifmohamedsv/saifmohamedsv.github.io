@@ -1,13 +1,13 @@
-import { formatDate } from "@/lib/formatdate";
 import Section from "@/components/Section";
 import Link from "@/components/ui/Link";
-import Image from "next/image";
+import { formatDate } from "@/lib/formatdate";
+import { Post as PostType } from "@/types/post";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import React from "react";
-import { Post } from "@/types/post";
 
 type PostProps = {
-  post: Post;
+  post: PostType;
   mousePosition?: {
     x: number;
     y: number;

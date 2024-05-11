@@ -23,7 +23,7 @@ export default async function Blog() {
   );
 
   console.log(projects);
-  
+
   return (
     <div className="mx-auto max-w-[700px]">
       <div className="flex flex-col gap-16 md:gap-24 ">

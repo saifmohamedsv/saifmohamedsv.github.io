@@ -7,7 +7,6 @@ const nextConfig = {
   swcMinify: true,
   output: "export",
   distDir: "build",
-  // basePath: "/saifmohamedsv.github.io",
   images: {
     unoptimized: true,
     domains: [
@@ -26,5 +25,5 @@ const nextConfig = {
   },
 };
 
-// module.exports = withContentlayer(nextConfig);
-module.exports = nextConfig;
+module.exports = withContentlayer(nextConfig);
+// module.exports = nextConfig;

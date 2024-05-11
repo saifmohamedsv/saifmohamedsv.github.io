@@ -1,21 +1,19 @@
 import { Metadata } from "next";
-import PostList from "./components/ui/PostList";
 import NewsletterSignupForm from "./components/ui/NewsletterSignupForm";
+import PostList from "./components/ui/PostList";
 
 export const metadata: Metadata = {
   title: "Blog | Saif Mohamed",
   description:
-    "Results-Driven Full-Stack Frontend Developer | Specialized in React.js | AIESEC Global Volunteer | Expert in JavaScript | Dedicated to Seamless Fullstack Solutions",
+    "This is Saif Mohamed's Blog, Talks about frontend development and web technologies",
 };
 
 export default async function Blog() {
   const data = await getData();
-  const posts = data
-    .sort(
-      (a: any, b: any) =>
-        new Date(b.published_at).getTime() - new Date(a.published_at).getTime(),
-    )
-    .filter((_: any, i: any) => i < 3);
+  const posts = data.sort(
+    (a: any, b: any) =>
+      new Date(b.published_at).getTime() - new Date(a.published_at).getTime(),
+  );
 
   console.log(posts[0]);
 
@@ -55,6 +53,9 @@ async function getData() {
       accept: "application/vnd.forem.api-v1+json",
     },
     method: "GET",
+    next: {
+      revalidate: 60,
+    },
   });
 
   return await response.json();

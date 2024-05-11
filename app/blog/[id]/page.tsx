@@ -1,16 +1,17 @@
+import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import type { Metadata, ResolvingMetadata } from "next";
 
+import Subscribe from "@/app/blog/components/ui/NewsletterSignupForm";
+import ViewCounter from "@/app/blog/components/ui/ViewCounter";
 import Tags from "@/components/Tags";
 import Link from "@/components/ui/Link";
-import ViewCounter from "@/app/blog/components/ui/ViewCounter";
-import Subscribe from "@/app/blog/components/ui/NewsletterSignupForm";
 import { formatDate } from "lib/formatdate";
 
+import { allPosts } from "@/.contentlayer/generated";
 import Avatar from "@/public/avatar.png";
 import { Post as PostType } from "@/types/post";
-
+import MdxWrapper from "../components/ui/MdxWrapper";
 type Props = {
   params: {
     slug: string;
@@ -54,13 +55,7 @@ export async function generateMetadata(
       description,
       type: "article",
       publishedTime,
-      // url: `https://saifmohamedsv.web.app/blog/${title}`,
-      // images: [
-      //   {
-      //     url: `https://saifmohamedsv.web.app/api/og?title=${title}`,
-      //     alt: title,
-      //   },
-      // ],
+      url: `https://saifmohamedsv.github.io/blog/${title}`,
     },
   };
 
@@ -75,6 +70,8 @@ export default async function Post({ params }: { params: { id: string } }) {
   if (!post) {
     notFound();
   }
+
+  const postMarkdown = allPosts.find((p) => p._id === id)?.body.code;
 
   return (
     <div className="flex flex-col gap-20">
@@ -131,9 +128,8 @@ export default async function Post({ params }: { params: { id: string } }) {
         <div
           className="prose prose-neutral animate-in"
           style={{ "--index": 3 } as React.CSSProperties}
-          dangerouslySetInnerHTML={{ __html: post.body_html }}
         >
-          {/* <Mdx code={post.body_markdown} /> */}
+          <MdxWrapper code={allPosts[0].body.code} />
         </div>
       </article>
 
